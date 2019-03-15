@@ -1,4 +1,4 @@
-type Selector = string | Element
+type Selector = string | Element | Window
 type Result = {
   element: Element
   event: Event

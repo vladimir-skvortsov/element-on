@@ -50,7 +50,7 @@ Wrapper function of elementOn that pass "DOMContentLoaded" event as "eventName".
 
 #### selector
 
-Type: `string`
+Type: `string` | `Element` | `Window`
 
 [CSS selector.](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_Started/Selectors)
 
