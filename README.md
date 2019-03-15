@@ -44,6 +44,17 @@ Returns a promise for a matching element with targeted event.
 
 Wrapper function of elementOn that pass "load" event as "eventName".
 
+```js
+const { elementOnLoad } = require('element-on')
+
+
+(async () => {
+	await elementOnLoad(window)
+
+	// Do some stuff
+})()
+```
+
 ### elementOn.elementOnDOMContentLoaded(selector)
 
 Wrapper function of elementOn that pass "DOMContentLoaded" event as "eventName".
