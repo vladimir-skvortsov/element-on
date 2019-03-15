@@ -36,11 +36,11 @@ const elementOn = require('element-on')
 
 ## API
 
-### elementOn(selector, eventName)
+### elementOn(target, eventName)
 
 Returns a promise for a matching element with targeted event.
 
-### elementOn.elementOnLoad(selector)
+### elementOn.elementOnLoad(target)
 
 Wrapper function of elementOn that pass "load" event as "eventName".
 
@@ -55,11 +55,11 @@ const { elementOnLoad } = require('element-on')
 })()
 ```
 
-### elementOn.elementOnDOMContentLoaded(selector)
+### elementOn.elementOnDOMContentLoaded(target)
 
 Wrapper function of elementOn that pass "DOMContentLoaded" event as "eventName".
 
-#### selector
+#### target
 
 Type: `string` | `Element` | `Window`
 

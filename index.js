@@ -1,10 +1,10 @@
 'use strict'
 
 
-const elementOn = (selector, eventName) =>
+const elementOn = (target, eventName) =>
   new Promise((resolve, reject) => {
     const element =
-      typeof selector === 'string' ? document.querySelector(selector) : selector
+      typeof target === 'string' ? document.querySelector(target) : target
 
     if (!element) reject('Element wasn\'t found')
 
@@ -16,8 +16,8 @@ const elementOn = (selector, eventName) =>
     element.addEventListener(eventName, eventHandler)
   })
 
-const elementOnLoad = selector => elementOn(selector, 'load')
-const elementOnDOMContentLoaded = selector => elementOn(selector, 'DOMContentLoaded')
+const elementOnLoad = target => elementOn(target, 'load')
+const elementOnDOMContentLoaded = target => elementOn(target, 'DOMContentLoaded')
 
 
 module.exports = elementOn

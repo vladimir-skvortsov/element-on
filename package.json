@@ -1,6 +1,6 @@
 {
   "name": "element-on",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect when element got some event",
   "main": "index.js",
   "typings": "./index.d.ts",

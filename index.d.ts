@@ -1,16 +1,16 @@
-type Selector = string | Element | Window
+type Target = string | EventTarget
 type Result = {
   element: Element
   event: Event
 }
 
 
-declare function elementOn(selector: Selector, eventName: string): Promise<Result>
+declare function elementOn(target: Target, eventName: string): Promise<Result>
 
 
 declare namespace elementOn {
-  export function elementOnLoad(selector: Selector): Promise<Result>
-  export function elementOnDOMContentLoaded(selector: Selector): Promise<Result>
+  export function elementOnLoad(target: Target): Promise<Result>
+  export function elementOnDOMContentLoaded(target: Target): Promise<Result>
 }
 
 
