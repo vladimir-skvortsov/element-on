@@ -16,6 +16,11 @@ const elementOn = (selector, eventName) =>
     element.addEventListener(eventName, eventHandler)
   })
 
+const elementOnLoad = selector => elementOn(selector, 'load')
+const elementOnDOMContentLoaded = selector => elementOn(selector, 'DOMContentLoaded')
+
 
 module.exports = elementOn
 module.exports.default = elementOn
+module.exports.elementOnLoad = elementOnLoad
+module.exports.elementOnDOMContentLoaded = elementOnDOMContentLoaded
