@@ -1,26 +1,31 @@
-'use strict'
+'use strict';
 
+var elementOn = function elementOn(target, eventName) {
+  return new Promise(function (resolve, reject) {
+    var element = typeof target === 'string' ? document.querySelector(target) : target;
+    if (!element) reject('Element wasn\'t found');
 
-const elementOn = (target, eventName) =>
-  new Promise((resolve, reject) => {
-    const element =
-      typeof target === 'string' ? document.querySelector(target) : target
+    var eventHandler = function eventHandler(event) {
+      element.removeEventListener(eventName, eventHandler);
+      resolve({
+        element: element,
+        event: event
+      });
+    };
 
-    if (!element) reject('Element wasn\'t found')
+    element.addEventListener(eventName, eventHandler);
+  });
+};
 
-    const eventHandler = event => {
-      element.removeEventListener(eventName, eventHandler)
-      resolve({ element, event })
-    }
+var elementOnLoad = function elementOnLoad(target) {
+  return elementOn(target, 'load');
+};
 
-    element.addEventListener(eventName, eventHandler)
-  })
+var elementOnDOMContentLoaded = function elementOnDOMContentLoaded(target) {
+  return elementOn(target, 'DOMContentLoaded');
+};
 
-const elementOnLoad = target => elementOn(target, 'load')
-const elementOnDOMContentLoaded = target => elementOn(target, 'DOMContentLoaded')
-
-
-module.exports = elementOn
-module.exports.default = elementOn
-module.exports.elementOnLoad = elementOnLoad
-module.exports.elementOnDOMContentLoaded = elementOnDOMContentLoaded
+module.exports = elementOn;
+module.exports.default = elementOn;
+module.exports.elementOnLoad = elementOnLoad;
+module.exports.elementOnDOMContentLoaded = elementOnDOMContentLoaded;
